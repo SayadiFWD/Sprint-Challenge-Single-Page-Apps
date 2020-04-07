@@ -29,6 +29,19 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 
 > Answer:
 
+
+The browser detects that the user has clicked on an anchor element.
+It makes an HTTP GET request to the URL found in the href tag
+The server processes the request, and sends a new document (usually HTML) as a response.
+The browser discards the old webpage altogether, and displays the newly downloaded one.
+The browser detects that the user has clicked on an anchor element, just like before.
+A client side code (usually the routing library) catches this event, detects that the URL is not an external link, and then prevents the browser from making the HTTP GET request.
+The routing library then manually changes the URL displayed in the browser (using the HTML5 history API, or maybe URL hashbangs on older browsers)
+The routing library then changes the state of the client app. For example, it can change the root React/Angular/etc component according to the route rules.
+The app (particularly the MVC library, like React) then processes state changes. It renders the new components, and if necessary, it requests new data from the server. But this time the response isn't necessarily an entire webpage, it may also be "raw" data, in which case the client-side code turns it into HTML elements.
+
+
+
 ## Project Set Up
 
 Follow these steps to set up and work on your project:
